@@ -18,15 +18,33 @@ class ChooseCompanyActivity : AppCompatActivity() {
         val mAuth = FirebaseAuth.getInstance()
         val db = FirebaseFirestore.getInstance()
         var userCompanies: MutableList<Company> = ArrayList()
+
         db.collection("companies").whereEqualTo("ownerId",
             mAuth.currentUser?.uid
         ).get().addOnSuccessListener { documentSnapshot ->
-            var dbcompanies = documentSnapshot.toObjects(Company::class.java)
+            val dbcompanies = documentSnapshot.toObjects(Company::class.java)
             userCompanies = dbcompanies
+            val companyNames: MutableList<String> = ArrayList()
+            for(item in userCompanies)
+            {
+                companyNames.add(item.name)
+            }
+
+            val arrayAdapter = ArrayAdapter(this,android.R.layout.simple_list_item_1,companyNames)
+            listBoxCompanies.adapter = arrayAdapter
         }
 
-        val arrayAdapter = ArrayAdapter<Company>(this,android.R.layout.simple_list_item_1,userCompanies)
-        listBoxCompanies.adapter = arrayAdapter
+        listBoxCompanies.setOnItemClickListener{ parent, view, position, id ->
+            db.collection("companies").whereEqualTo("ownerId", mAuth.currentUser?.uid).whereEqualTo("name",userCompanies[position].name).get().addOnSuccessListener{documentSnapshot ->
+                val companyId = documentSnapshot.first().id
+                val intent = Intent(this, CompanyActivity::class.java)
+                intent.putExtra("companyId",companyId)
+                startActivity(intent)
+            }
+
+        }
+
+
 
 
 

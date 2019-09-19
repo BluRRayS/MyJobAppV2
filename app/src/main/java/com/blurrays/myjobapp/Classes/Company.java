@@ -26,6 +26,7 @@ public class Company {
     private String streetname;
     private int housenumber;
     private String subpremise;
+    private String documentId;
 
     public String getOwnerId() {
         return ownerId;
@@ -98,4 +99,8 @@ public class Company {
     public void setSubpremise(String subpremise) {
         this.subpremise = subpremise;
     }
+
+    public String getDocumentId(){return documentId;}
+
+    public void setDocumentId(String documentId){this.documentId = documentId;}
 }
