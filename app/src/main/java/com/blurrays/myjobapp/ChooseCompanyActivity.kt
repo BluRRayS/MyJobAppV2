@@ -37,16 +37,12 @@ class ChooseCompanyActivity : AppCompatActivity() {
         listBoxCompanies.setOnItemClickListener{ parent, view, position, id ->
             db.collection("companies").whereEqualTo("ownerId", mAuth.currentUser?.uid).whereEqualTo("name",userCompanies[position].name).get().addOnSuccessListener{documentSnapshot ->
                 val companyId = documentSnapshot.first().id
-                val intent = Intent(this, CompanyActivity::class.java)
+                val intent = Intent(this, MainCompanyOwnerActivity::class.java)
                 intent.putExtra("companyId",companyId)
                 startActivity(intent)
             }
 
         }
-
-
-
-
 
         fabCreateCompany.setOnClickListener()
         {

@@ -16,14 +16,7 @@ class CompanyActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_company_owner)
 
-        val mAuth = FirebaseAuth.getInstance()
-        val db = FirebaseFirestore.getInstance()
-        val companyId = intent.extras?.getString("companyId")
-        var company = Company()
-        val query = db.collection("companies").document(companyId.toString()).get().addOnSuccessListener{documentSnapshot ->
-            company = documentSnapshot.toObject(Company::class.java)!!
-            textViewCompanyName.text = company.name
-        }
+
 
     }
 }

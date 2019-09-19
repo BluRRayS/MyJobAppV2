@@ -14,4 +14,6 @@
     <string name="menu_tools">Tools</string>
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
+    <string name="title_activity_company_owner_main">CompanyOwnerMainActivity</string>
+    <string name="title_activity_main_company_owner">MainCompanyOwnerActivity</string>
 </resources>
