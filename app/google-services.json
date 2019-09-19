@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "916280471075",
+    "firebase_url": "https://myjobapp-ccbff.firebaseio.com",
+    "project_id": "myjobapp-ccbff",
+    "storage_bucket": "myjobapp-ccbff.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:916280471075:android:fa6c5fe3dc03e8fd01cb96",
+        "android_client_info": {
+          "package_name": "com.blurrays.myjobapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "916280471075-rsuesvt8iulfu7mfvjlj3q4g5tur7qkb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.blurrays.myjobapp",
+            "certificate_hash": "e5a598383f2f2ba8e833a105855c2ad808fe7946"
+          }
+        },
+        {
+          "client_id": "916280471075-72h0gdghh0662bpibd0eigrqo4le15a3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBD7Zxn_ZDIc3CP5GqvTONAlS66W67ZBAg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "916280471075-72h0gdghh0662bpibd0eigrqo4le15a3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
