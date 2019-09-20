@@ -1,6 +1,8 @@
 package com.blurrays.myjobapp.Classes;
 
-public class Company {
+import java.io.Serializable;
+
+public class Company implements Serializable {
 
     public Company(String ownerId, String name, String email, String phone, String website, String city, String streetname, int housenumber, String subpremise) {
         this.ownerId = ownerId;
@@ -26,6 +28,7 @@ public class Company {
     private String streetname;
     private int housenumber;
     private String subpremise;
+    private String documentId;
 
     public String getOwnerId() {
         return ownerId;
@@ -98,4 +101,8 @@ public class Company {
     public void setSubpremise(String subpremise) {
         this.subpremise = subpremise;
     }
+
+    public String getDocumentId(){return documentId;}
+
+    public void setDocumentId(String documentId){this.documentId = documentId;}
 }

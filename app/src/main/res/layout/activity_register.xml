@@ -4,139 +4,161 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient"
     tools:context=".RegisterActivity">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:padding="20dp"
-        android:text="Register"
-        android:textColor="#000"
-        android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/signup_email_input"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:hint="email"
-        android:inputType="textEmailAddress"
-        android:padding="10dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <EditText
-        android:id="@+id/signup_password_input"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:hint="password"
-        android:inputType="textPassword"
-        android:padding="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signup_email_input" />
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/signup_repeatpassword_input"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:hint="Repeat password"
-        android:inputType="textPassword"
-        android:padding="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signup_password_input" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/signup_firstname_input"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:hint="First name"
-        android:inputType="textPersonName"
-        android:padding="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signup_repeatpassword_input" />
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="serif-monospace"
+                    android:padding="20dp"
+                    android:text="Register"
+                    android:textColor="@android:color/white"
+                    android:textSize="36sp" />
 
-    <EditText
-        android:id="@+id/signup_lastname_input"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:hint="last name"
-        android:inputType="textPersonName"
-        android:padding="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signup_firstname_input" />
+                <EditText
+                    android:id="@+id/signup_firstname_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/border"
+                    android:hint="First name"
+                    android:inputType="textPersonName"
+                    android:padding="10dp"
+                    android:textColor="@color/common_google_signin_btn_text_dark_default"
+                    android:textColorHint="@color/common_google_signin_btn_text_dark_default" />
 
-    <EditText
-        android:id="@+id/signup_phone_input"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:hint="Phone"
-        android:inputType="phone"
-        android:padding="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signup_lastname_input" />
+                <EditText
+                    android:id="@+id/signup_lastname_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/border"
+                    android:hint="last name"
+                    android:inputType="textPersonName"
+                    android:padding="10dp"
+                    android:textColor="@color/common_google_signin_btn_text_dark_default"
+                    android:textColorHint="@color/common_google_signin_btn_text_dark_default" />
 
-    <Button
-        android:id="@+id/button_register"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:background="#000"
-        android:text="Register"
-        android:textColor="#fff"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox_Agree" />
+                <EditText
+                    android:id="@+id/signup_email_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/border"
+                    android:hint="email"
+                    android:inputType="textEmailAddress"
+                    android:padding="10dp"
+                    android:textColor="@color/common_google_signin_btn_text_dark_default"
+                    android:textColorHint="@color/common_google_signin_btn_text_dark_default" />
 
-    <Button
-        android:id="@+id/button_login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="28dp"
-        android:background="#000"
-        android:text="Login"
-        android:textColor="#fff"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_register" />
+                <EditText
+                    android:id="@+id/signup_password_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/border"
+                    android:hint="password"
+                    android:inputType="textPassword"
+                    android:padding="10dp"
+                    android:textColor="@color/common_google_signin_btn_text_dark_default"
+                    android:textColorHint="@color/common_google_signin_btn_text_dark_default" />
 
-    <CheckBox
-        android:id="@+id/checkBox_CompanyOwner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="I am a company owner"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signup_phone_input" />
+                <EditText
+                    android:id="@+id/signup_repeatpassword_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/border"
+                    android:hint="Repeat password"
+                    android:inputType="textPassword"
+                    android:padding="10dp"
+                    android:textColor="@color/common_google_signin_btn_text_dark_default"
+                    android:textColorHint="@color/common_google_signin_btn_text_dark_default" />
 
-    <CheckBox
-        android:id="@+id/checkBox_Agree"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="I agree to the terms and conditions"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox_CompanyOwner" />
+                <EditText
+                    android:id="@+id/signup_phone_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/border"
+                    android:hint="Phone"
+                    android:inputType="phone"
+                    android:padding="10dp"
+                    android:textColor="@color/common_google_signin_btn_text_dark_default"
+                    android:textColorHint="@color/common_google_signin_btn_text_dark_default" />
+
+                <CheckBox
+                    android:id="@+id/checkBox_CompanyOwner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:buttonTint="#80FFFFFF"
+                    android:text="I am a company owner"
+                    android:textColor="@color/common_google_signin_btn_text_dark_default"
+                    android:textColorHint="@color/common_google_signin_btn_text_dark_default" />
+
+                <CheckBox
+                    android:id="@+id/checkBox_Agree"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:buttonTint="#80FFFFFF"
+                    android:text="I agree to the terms and conditions"
+                    android:textColor="@color/common_google_signin_btn_text_dark_default"
+                    android:textColorHighlight="@color/colorAccent"
+                    android:textColorHint="@color/common_google_signin_btn_text_dark_default" />
+
+                <Button
+                    android:id="@+id/button_register"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/border"
+                    android:text="Register"
+                    android:textColor="@color/common_google_signin_btn_text_dark_default"
+                    android:textColorHint="@color/common_google_signin_btn_text_dark_default" />
+
+                <Button
+                    android:id="@+id/button_login"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/border"
+                    android:text="Login"
+                    android:textColor="#fff" />
+
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

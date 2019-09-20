@@ -12,6 +12,7 @@ import com.blurrays.myjobapp.Classes.UserType
 import com.google.firebase.auth.AuthResult
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.android.synthetic.main.activity_login.*
 
 
 class LoginActivity : AppCompatActivity() {
@@ -21,19 +22,35 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
 
         val button = findViewById<Button>(R.id.login)
-        val registerButton = findViewById<Button>(R.id.register)
 
-        button.setOnClickListener()
-        {
-            LoginUser()
-        }
-
-        registerButton.setOnClickListener()
+        register.setOnClickListener()
         {
             val registerIntent = Intent(this, RegisterActivity::class.java)
             startActivity(registerIntent)
         }
 
+        button.setOnClickListener()
+        {
+            if(formOk()) {
+                LoginUser()
+            }
+        }
+
+
+
+    }
+
+    fun  formOk() :Boolean
+    {
+        if(login_email_input.text.toString().isEmpty() || login_password_input.text.toString().isEmpty())
+        {
+            Toast.makeText(this,"Fields cannot be empty!",Toast.LENGTH_SHORT).show()
+            return false
+        }
+        else
+        {
+            return true
+        }
     }
 
     fun LoginUser() {

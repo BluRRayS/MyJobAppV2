@@ -11,12 +11,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ChooseCompanyActivity"></activity>
-        <activity android:name=".CreateCompanyActivity" />
+        <activity android:name=".CompanyInfoActivity"></activity>
         <activity
-            android:name=".CompanyOwnerActivity"
-            android:label="@string/title_activity_main"
+            android:name=".MainCompanyOwnerActivity"
+            android:label="@string/title_activity_main_company_owner"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".ChooseCompanyActivity" />
+        <activity android:name=".CreateCompanyActivity" />
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

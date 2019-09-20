@@ -1,4 +1,4 @@
-package com.blurrays.myjobapp.ui.tools
+package com.blurrays.myjobapp.ui.staff
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,20 +10,20 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.blurrays.myjobapp.R
 
-class ToolsFragment : Fragment() {
+class StaffFragment : Fragment() {
 
-    private lateinit var toolsViewModel: ToolsViewModel
+    private lateinit var staffViewModel: StaffViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        toolsViewModel =
-            ViewModelProviders.of(this).get(ToolsViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_tools, container, false)
-        val textView: TextView = root.findViewById(R.id.text_tools)
-        toolsViewModel.text.observe(this, Observer {
+        staffViewModel =
+            ViewModelProviders.of(this).get(StaffViewModel::class.java)
+        val root = inflater.inflate(R.layout.fragment_staff, container, false)
+        val textView: TextView = root.findViewById(R.id.text_gallery)
+        staffViewModel.text.observe(this, Observer {
             textView.text = it
         })
         return root

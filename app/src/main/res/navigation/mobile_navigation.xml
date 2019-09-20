@@ -7,26 +7,27 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name=" "
-        android:label="@string/menu_home" />
+        android:name="com.blurrays.myjobapp.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.blurrays.myjobapp.ui.gallery.GalleryFragment"
+        android:id="@+id/nav_staff"
+        android:name="com.blurrays.myjobapp.ui.staff.StaffFragment"
         android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        tools:layout="@layout/fragment_staff" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.blurrays.myjobapp.ui.slideshow.SlideshowFragment"
+        android:id="@+id/nav_workfloors"
+        android:name="com.blurrays.myjobapp.ui.workfloors.WorkfloorsFragment"
         android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        tools:layout="@layout/fragment_workfloors" />
 
     <fragment
-        android:id="@+id/nav_tools"
-        android:name="com.blurrays.myjobapp.ui.tools.ToolsFragment"
+        android:id="@+id/nav_manage"
+        android:name="com.blurrays.myjobapp.ui.manage.ManageFragment"
         android:label="@string/menu_tools"
-        tools:layout="@layout/fragment_tools" />
+        tools:layout="@layout/fragment_manage" />
 
     <fragment
         android:id="@+id/nav_share"

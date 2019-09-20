@@ -1,10 +1,10 @@
-package com.blurrays.myjobapp.ui.gallery
+package com.blurrays.myjobapp.ui.staff
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class GalleryViewModel : ViewModel() {
+class StaffViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
         value = "This is gallery Fragment"
