@@ -9,6 +9,7 @@ import android.widget.Toast
 import android.content.Intent
 import com.blurrays.myjobapp.Classes.Account
 import com.blurrays.myjobapp.Classes.UserType
+import com.blurrays.myjobapp.CompanyActivities.ChooseCompanyActivity
 import com.google.firebase.auth.AuthResult
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.firestore.FirebaseFirestore

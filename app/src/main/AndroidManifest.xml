@@ -12,13 +12,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".CompanyInfoActivity"></activity>
+        <activity android:name=".CompanyActivities.EditCompanyActivity"></activity>
+        <activity android:name=".CompanyActivities.CompanyInfoActivity" />
         <activity
             android:name=".MainCompanyOwnerActivity"
             android:label="@string/title_activity_main_company_owner"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ChooseCompanyActivity" />
-        <activity android:name=".CreateCompanyActivity" />
+        <activity android:name=".CompanyActivities.ChooseCompanyActivity" />
+        <activity android:name=".CompanyActivities.CreateCompanyActivity" />
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,7 +29,10 @@
         </activity>
         <activity android:name=".ProfileActivity" />
         <activity android:name=".RegisterActivity" />
-        <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyAvmzuNYA51lbNkvmeadsoFsU2jFCzQ7xY"/>
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyAvmzuNYA51lbNkvmeadsoFsU2jFCzQ7xY" />
     </application>
 
 </manifest>

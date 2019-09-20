@@ -1,4 +1,4 @@
-package com.blurrays.myjobapp
+package com.blurrays.myjobapp.CompanyActivities
 
 import android.content.Context
 import android.content.Intent
@@ -6,28 +6,15 @@ import android.location.Address
 import android.location.Geocoder
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
 import com.blurrays.myjobapp.Classes.Company
 import com.google.android.gms.maps.CameraUpdateFactory
-import com.google.android.gms.maps.GoogleMap
-import com.google.android.gms.maps.MapsInitializer
-import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.GeoPoint
 import kotlinx.android.synthetic.main.activity_company_info.*
-import com.google.android.gms.common.api.GoogleApiClient
-import androidx.core.app.ComponentActivity.ExtraData
-import androidx.core.content.ContextCompat.getSystemService
-import android.icu.lang.UCharacter.GraphemeClusterBreak.T
-import com.google.android.gms.maps.MapView
-import com.google.android.gms.maps.OnMapReadyCallback
 
-import androidx.core.content.ContextCompat.getSystemService
-import android.icu.lang.UCharacter.GraphemeClusterBreak.T
-import androidx.core.content.ContextCompat.getSystemService
-import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+import com.blurrays.myjobapp.R
+import com.google.android.gms.maps.model.LatLng
 import java.io.IOException
 
 
@@ -55,18 +42,13 @@ class CompanyInfoActivity : AppCompatActivity() {
 
         val mapView =  mapViewCompany
         mapView.onCreate(savedInstanceState)
-        mapView.getMapAsync { googleMap ->
-            val coordinates = position
-            googleMap.addMarker(MarkerOptions().position(coordinates).title("Brandevoortse hoeve"))
-            googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(coordinates, 15f))
-            mapView.onResume()
-        }
 
 
 
 
         db.collection("companies").document(intent.getStringExtra("companyId")).get().addOnSuccessListener { documentSnapshot ->
             company = documentSnapshot.toObject(Company::class.java)!!
+            company.documentId = intent.getStringExtra("companyId")
             textViewCompanyTitleInfo.text = company.name
             textViewCompanyEmailInfo.text = company.email
             textViewCompanyPhoneInfo.text = company.phone
@@ -76,13 +58,17 @@ class CompanyInfoActivity : AppCompatActivity() {
 
             mapView.getMapAsync { googleMap ->
                 val coordinates = position
-                googleMap.addMarker(MarkerOptions().position(coordinates).title("Brandevoortse hoeve"))
+                googleMap.addMarker(MarkerOptions().position(coordinates).title(company.name))
                 googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(coordinates, 15f))
                 mapView.onResume()
             }
         }
 
-
+        btnEditCompanyInfo.setOnClickListener {
+            val intent = Intent(this, EditCompanyActivity::class.java)
+            intent.putExtra("company",company)
+            startActivity(intent)
+        }
 
 
         FABReturnToChoosCompany.setOnClickListener{

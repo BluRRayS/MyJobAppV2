@@ -5,12 +5,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient"
-    tools:context=".CompanyActivities.CreateCompanyActivity">
+    tools:context=".CompanyActivities.EditCompanyActivity">
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/FABBackToCompanyInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:clickable="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_arrow_back_white_24dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="20dp"
+        android:background="@drawable/rounded_background"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -23,119 +35,114 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/rounded_background"
+                android:layout_height="match_parent"
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textView4"
+                    android:id="@+id/textView6"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:gravity="center"
-                    android:text="Add you company"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    android:text="Edit company info"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display1"
                     android:textColor="@color/colorAccent"
                     android:textSize="24sp" />
 
                 <EditText
-                    android:id="@+id/TxtBoxCompanyName"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:ems="10"
-                    android:hint="Company Name"
-                    android:inputType="textPersonName" />
-
-                <EditText
-                    android:id="@+id/TxtBoxCompanyEmail"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:ems="10"
-                    android:hint="Email"
-                    android:inputType="textEmailAddress" />
-
-                <EditText
-                    android:id="@+id/TxtBoxCompanyPhone"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:ems="10"
-                    android:hint="Phone"
-                    android:inputType="phone" />
-
-                <EditText
-                    android:id="@+id/TxtBoxCompanyWebsite"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:ems="10"
-                    android:hint="Website"
-                    android:inputType="textPersonName" />
-
-                <EditText
-                    android:id="@+id/TxtBoxCompanyCity"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:ems="10"
-                    android:hint="City"
-                    android:inputType="textPersonName" />
-
-                <EditText
-                    android:id="@+id/TxtBoxCompanyStreetname"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:ems="10"
-                    android:hint="Streetname"
-                    android:inputType="textPersonName" />
-
-                <EditText
-                    android:id="@+id/TxtBoxCompanyHouseNumber"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:ems="10"
-                    android:hint="House Number"
-                    android:inputType="number" />
-
-                <EditText
-                    android:id="@+id/TxtBoxCompanySubPremise"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:ems="10"
-                    android:hint="Sub premise"
-                    android:inputType="textPersonName" />
-
-                <Button
-                    android:id="@+id/BtnCreateCompany"
+                    android:id="@+id/editCompanyName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="30dp"
                     android:layout_marginRight="10dp"
-                    android:layout_marginBottom="5dp"
+                    android:ems="10"
+                    android:hint="Company name"
+                    android:inputType="textPersonName"
+                    android:text="Name" />
+
+                <EditText
+                    android:id="@+id/editCompanyEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:ems="10"
+                    android:hint="Company email"
+                    android:inputType="textEmailAddress" />
+
+                <EditText
+                    android:id="@+id/editCompanyPhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:ems="10"
+                    android:hint="Company phone"
+                    android:inputType="phone" />
+
+                <EditText
+                    android:id="@+id/editCompanyWebsite"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:ems="10"
+                    android:hint="Company website"
+                    android:inputType="textPersonName"
+                    android:text="Name" />
+
+                <EditText
+                    android:id="@+id/editComanycCity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:ems="10"
+                    android:hint="Company city"
+                    android:inputType="textPersonName"
+                    android:text="Name" />
+
+                <EditText
+                    android:id="@+id/editCompanyStreetname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:ems="10"
+                    android:hint="Company streetname"
+                    android:inputType="textPersonName"
+                    android:text="Name" />
+
+                <EditText
+                    android:id="@+id/editCompanyHousenumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:ems="10"
+                    android:hint="Company housenumber"
+                    android:inputType="number" />
+
+                <EditText
+                    android:id="@+id/editCompanySubpremise"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:ems="10"
+                    android:hint="Company Subpremise"
+                    android:inputType="textPersonName"
+                    android:text="Name" />
+
+                <Button
+                    android:id="@+id/btnEditCompanySave"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="30dp"
                     android:background="@drawable/rounded_background"
                     android:backgroundTint="@color/colorAccent"
-                    android:text="Add Company"
+                    android:drawableLeft="@drawable/ic_save_white_24dp"
+                    android:drawablePadding="4dp"
+                    android:padding="10dp"
+                    android:text="Save changes"
                     android:textColor="@color/common_google_signin_btn_text_dark_default" />
-
             </LinearLayout>
         </ScrollView>
+
     </LinearLayout>
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/FABBackToChooseCompany"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:clickable="true"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_arrow_back_white_24dp" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

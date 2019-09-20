@@ -1,4 +1,4 @@
-package com.blurrays.myjobapp
+package com.blurrays.myjobapp.CompanyActivities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -8,12 +8,11 @@ import android.util.Patterns
 import android.widget.EditText
 import android.widget.Toast
 import com.blurrays.myjobapp.Classes.Company
+import com.blurrays.myjobapp.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_create_company.*
-import kotlinx.android.synthetic.main.activity_register.*
 import java.lang.Exception
-import java.util.regex.Pattern
 
 class CreateCompanyActivity : AppCompatActivity() {
 
@@ -73,7 +72,8 @@ class CreateCompanyActivity : AppCompatActivity() {
             db.collection("companies").document().set(newCompany)
                 .addOnSuccessListener {
                     Toast.makeText(this,"Company created successfully", Toast.LENGTH_SHORT).show()
-                    startActivity(Intent(this,ChooseCompanyActivity::class.java))
+                    startActivity(Intent(this,
+                        ChooseCompanyActivity::class.java))
                 }
                 .addOnFailureListener {
                     Toast.makeText(this,"An error occurred failed to create company", Toast.LENGTH_LONG).show()

@@ -8,17 +8,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-
-import com.blurrays.myjobapp.ChooseCompanyActivity;
 import com.blurrays.myjobapp.Classes.Company;
-import com.blurrays.myjobapp.CompanyInfoActivity;
+import com.blurrays.myjobapp.CompanyActivities.CompanyInfoActivity;
 import com.blurrays.myjobapp.R;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
