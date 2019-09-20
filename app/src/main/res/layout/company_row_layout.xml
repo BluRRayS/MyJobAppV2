@@ -50,6 +50,7 @@
                 android:background="@drawable/rounded_background"
                 android:backgroundTint="@color/colorAccent"
                 android:focusable="false"
+                android:maxWidth="88dp"
                 android:minHeight="80dp"
                 android:text="Company Info"
                 android:textColor="@color/common_google_signin_btn_text_dark_default" />
