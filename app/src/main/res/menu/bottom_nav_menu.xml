@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_schedule"
+        android:icon="@drawable/ic_dashboard_accent_24dp"
+        android:title="Schedule" />
+
+    <item
+        android:id="@+id/navigation_employees"
+        android:icon="@drawable/ic_people_accent_24dp"
+        android:title="Employee's" />
+
+    <item
+        android:id="@+id/navigation_workfloors"
+        android:icon="@drawable/ic_store_mall_directory_accent_24dp"
+        android:title="Workfloors" />
+    <item
+        android:id="@+id/navigation_roles"
+        android:icon="@drawable/ic_style_accent_24dp"
+        android:title="Roles" />
+
+</menu>

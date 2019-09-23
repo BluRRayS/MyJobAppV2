@@ -88,9 +88,11 @@
                     android:layout_margin="20dp"
                     android:layout_marginTop="16dp"
                     android:layout_weight="1"
+                    android:autoLink="web"
                     android:drawableLeft="@drawable/ic_website_coloraccent_24dp"
                     android:drawablePadding="2dp"
-                    android:text="TextView" />
+                    android:text="TextView"
+                    android:textAlignment="textStart" />
             </LinearLayout>
         </LinearLayout>
 
@@ -117,6 +119,7 @@
                     android:layout_margin="20dp"
                     android:layout_marginTop="20dp"
                     android:layout_weight="1"
+                    android:autoLink="phone"
                     android:drawableLeft="@drawable/ic_phone_coloraccent_24dp"
                     android:drawablePadding="2dp"
                     android:text="TextView" />
@@ -175,6 +178,7 @@
                     android:layout_margin="20dp"
                     android:layout_marginTop="28dp"
                     android:layout_weight="1"
+                    android:autoLink="email"
                     android:drawableLeft="@drawable/ic_email_coloraccent_24dp"
                     android:drawablePadding="2dp"
                     android:text="TextView" />

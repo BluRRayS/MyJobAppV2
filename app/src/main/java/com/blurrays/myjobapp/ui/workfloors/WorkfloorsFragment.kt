@@ -12,18 +12,18 @@ import com.blurrays.myjobapp.R
 
 class WorkfloorsFragment : Fragment() {
 
-    private lateinit var slideshowViewModel: WorkfloorViewModel
+    private lateinit var workfloorsViewModel: WorkfloorsViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        slideshowViewModel =
-            ViewModelProviders.of(this).get(WorkfloorViewModel::class.java)
+        workfloorsViewModel =
+            ViewModelProviders.of(this).get(WorkfloorsViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_workfloors, container, false)
-        val textView: TextView = root.findViewById(R.id.text_slideshow)
-        slideshowViewModel.text.observe(this, Observer {
+        val textView: TextView = root.findViewById(R.id.text_notifications)
+        workfloorsViewModel.text.observe(this, Observer {
             textView.text = it
         })
         return root

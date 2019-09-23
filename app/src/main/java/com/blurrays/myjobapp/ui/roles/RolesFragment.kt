@@ -1,4 +1,4 @@
-package com.blurrays.myjobapp.ui.send
+package com.blurrays.myjobapp.ui.roles
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,20 +10,21 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.blurrays.myjobapp.R
 
-class SendFragment : Fragment() {
 
-    private lateinit var sendViewModel: SendViewModel
+class RolesFragment : Fragment(){
+
+    private lateinit var rolesViewModel: RolesViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        sendViewModel =
-            ViewModelProviders.of(this).get(SendViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_send, container, false)
-        val textView: TextView = root.findViewById(R.id.text_send)
-        sendViewModel.text.observe(this, Observer {
+        rolesViewModel =
+            ViewModelProviders.of(this).get(RolesViewModel::class.java)
+        val root = inflater.inflate(R.layout.fragment_roles, container, false)
+        val textView: TextView = root.findViewById(R.id.text_roles)
+        rolesViewModel.text.observe(this, Observer {
             textView.text = it
         })
         return root

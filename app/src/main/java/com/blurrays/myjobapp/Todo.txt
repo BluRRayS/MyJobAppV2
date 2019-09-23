@@ -1,0 +1,32 @@
+#Todo
+
+#Authentication & accounts (Rated by most important to least)
+- Password reset
+- Account verification by email or sms
+- external accounts (Google, Facebook, etc)
+- Profile page (might use settings)
+
+#Optimization & error handling
+- Make unit tests
+- Make integration tests
+- Lessen Firestore usage by passing classes with the intent.
+
+#COMPANY OWNER SECTION
+
+    #ScheduleActivity
+
+    #EmployeeActivity
+
+    #RolesActivity
+
+    #WorkfloorsActivity
+
+#END OF COMPANY OWNER SECTION
+
+
+
+#EMPLOYEE SECTION
+
+
+#END OF EMPLOYEE SECTION
+

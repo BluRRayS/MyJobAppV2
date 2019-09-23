@@ -3,41 +3,25 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    app:startDestination="@+id/navigation_schedule">
 
     <fragment
-        android:id="@+id/nav_home"
-        android:name="com.blurrays.myjobapp.ui.home.HomeFragment"
-        android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        android:id="@+id/navigation_schedule"
+        android:name="com.blurrays.myjobapp.ui.schedule.ScheduleFragment"
+        android:label="Schedule" />
 
     <fragment
-        android:id="@+id/nav_staff"
-        android:name="com.blurrays.myjobapp.ui.staff.StaffFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_staff" />
+        android:id="@+id/navigation_employees"
+        android:name="com.blurrays.myjobapp.ui.employees.EmployeeFragment"
+        android:label="Employees" />
 
     <fragment
-        android:id="@+id/nav_workfloors"
+        android:id="@+id/navigation_workfloors"
         android:name="com.blurrays.myjobapp.ui.workfloors.WorkfloorsFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_workfloors" />
+        android:label="Workfloors" />
 
     <fragment
-        android:id="@+id/nav_manage"
-        android:name="com.blurrays.myjobapp.ui.manage.ManageFragment"
-        android:label="@string/menu_tools"
-        tools:layout="@layout/fragment_manage" />
-
-    <fragment
-        android:id="@+id/nav_share"
-        android:name="com.blurrays.myjobapp.ui.share.ShareFragment"
-        android:label="@string/menu_share"
-        tools:layout="@layout/fragment_share" />
-
-    <fragment
-        android:id="@+id/nav_send"
-        android:name="com.blurrays.myjobapp.ui.send.SendFragment"
-        android:label="@string/menu_send"
-        tools:layout="@layout/fragment_send" />
+        android:id="@+id/navigation_roles"
+        android:name="com.blurrays.myjobapp.ui.roles.RolesFragment"
+        android:label="Roles" />
 </navigation>
