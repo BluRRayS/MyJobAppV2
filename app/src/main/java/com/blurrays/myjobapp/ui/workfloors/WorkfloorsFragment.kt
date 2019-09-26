@@ -1,5 +1,6 @@
 package com.blurrays.myjobapp.ui.workfloors
 
+import android.content.ContentValues.TAG
 import android.content.Intent
 import android.graphics.Color
 import android.os.Build
@@ -63,23 +64,25 @@ class WorkfloorsFragment : Fragment() {
             startActivity(intent)
         }
 
-        try {
-            val docRef = db.collection("workfloors").whereEqualTo(
-                "companyId",
-                (activity as MainCompanyOwnerActivity).getCompany().documentId
-            )
-            docRef.get().addOnSuccessListener { documents ->
-                for (item in documents) {
-                    workfloorIds.add(item.id)
-                    val arrayAdapter = WorkfloorArrayAdapter(context, workfloorIds.toTypedArray())
-                    ListViewWorkfloors.adapter = arrayAdapter
-                }
+        val dbListner = db.collection("workfloors").whereEqualTo(
+            "companyId",
+            (activity as MainCompanyOwnerActivity).getCompany().documentId
+        )
+        dbListner.addSnapshotListener { value, e ->
+            if (e != null) {
+                Log.w(TAG, "Listen failed.", e)
+                return@addSnapshotListener
             }
 
-
-        } catch (e: Exception) {
-            Log.e("ERROR", e.toString())
+            workfloorIds.clear()
+            for (doc in value!!) {
+                workfloorIds.add(doc.id)
+                val arrayAdapter = WorkfloorArrayAdapter(context, workfloorIds.toTypedArray())
+                ListViewWorkfloors.adapter = arrayAdapter
+            }
+            Log.d(TAG, "View updated")
         }
+
 
     }
 

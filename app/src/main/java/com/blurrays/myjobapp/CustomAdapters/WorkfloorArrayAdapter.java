@@ -1,6 +1,9 @@
 package com.blurrays.myjobapp.CustomAdapters;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.util.Log;
@@ -77,14 +80,27 @@ public class WorkfloorArrayAdapter extends ArrayAdapter<String> {
                     deleteButton.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-//                            Intent intent = new Intent(getContext(), CompanyInfoActivity.class);
-//                            //if you want to send data to called activity uncomment next line
-//                            // intent.putExtra("extra", "value");
-//
-//                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//                            intent.putExtra("companyId",values[position]);
-//                            getContext().startActivity(intent);
-                            Toast.makeText(context, "Open delete menu", Toast.LENGTH_SHORT).show();
+                            AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                            builder.setTitle("Delete " + workfloors[0].getName());
+                            builder.setMessage("Are you sure?");
+                            builder.setPositiveButton("Delete", new Dialog.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int which) {
+                                    db.collection("workfloors").document(values[position]).delete().addOnCompleteListener(task ->
+                                            {
+                                                if (task.isSuccessful()) {
+                                                    Toast.makeText(context,"Workfloor deleted successfuly!",Toast.LENGTH_SHORT);
+                                                }
+                                                else {
+                                                    Toast.makeText(context,"Error deleting workfloor!",Toast.LENGTH_SHORT);
+                                                }
+                                            }
+                                    );
+                                }
+                            });
+                            builder.setNegativeButton("Cancel",null);
+                            AlertDialog alert = builder.create();
+                            alert.show();
                         }
                     });
 
