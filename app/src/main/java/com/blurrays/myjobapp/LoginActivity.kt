@@ -32,29 +32,25 @@ class LoginActivity : AppCompatActivity() {
 
         button.setOnClickListener()
         {
-            if(formOk()) {
+            if (formOk()) {
                 LoginUser()
             }
         }
 
 
-
     }
 
-    fun  formOk() :Boolean
-    {
-        if(login_email_input.text.toString().isEmpty() || login_password_input.text.toString().isEmpty())
-        {
-            Toast.makeText(this,"Fields cannot be empty!",Toast.LENGTH_SHORT).show()
+    private fun formOk(): Boolean {
+        if (login_email_input.text.toString().isEmpty() || login_password_input.text.toString().isEmpty()) {
+            Toast.makeText(this, "Fields cannot be empty!", Toast.LENGTH_SHORT).show()
             return false
-        }
-        else
-        {
+        } else {
             return true
         }
     }
 
-    fun LoginUser() {
+
+    private fun LoginUser() {
         val db = FirebaseFirestore.getInstance()
         val email = findViewById<EditText>(R.id.login_email_input)
         val password = findViewById<EditText>(R.id.login_password_input)
@@ -64,35 +60,46 @@ class LoginActivity : AppCompatActivity() {
         val Email = email.getText().toString().trim()
         val Password = password.getText().toString().trim()
         mAuth.signInWithEmailAndPassword(Email, Password)
-            .addOnCompleteListener(this,
-                OnCompleteListener<AuthResult> { task ->
-                    if (task.isSuccessful) {
-                        Toast.makeText(this,"Login Successful!",Toast.LENGTH_SHORT).show()
-                        //finish()
-                    } else {
-                        Toast.makeText(
-                            this@LoginActivity, "couldn't login",
-                            Toast.LENGTH_SHORT
-                        ).show()
+            .addOnCompleteListener(
+                this
+            ) { task ->
+                if (task.isSuccessful) {
+                    Toast.makeText(this, "Login Successful!", Toast.LENGTH_SHORT).show()
+                    //finish()
+                    var account = Account()
+                    val user = mAuth.currentUser
+                    if (user != null) {
+                        val userInfo = db.collection("users").document(user.uid)
+                        userInfo.get()
+                            .addOnSuccessListener { document ->
+                                val dbaccount = document.toObject(Account::class.java)
+                                if (dbaccount != null) {
+                                    account = dbaccount
+                                }
+                                if (account.type == UserType.CompanyOwner) {
+                                    startActivity(
+                                        Intent(
+                                            applicationContext,
+                                            ChooseCompanyActivity::class.java
+                                        )
+                                    )
+                                } else if (account.type == UserType.Employee)
+                                    startActivity(
+                                        Intent(
+                                            applicationContext,
+                                            ProfileActivity::class.java
+                                        )
+                                    )
+                            }
                     }
-                })
+                } else {
+                    Toast.makeText(
+                        this@LoginActivity, "couldn't login",
+                        Toast.LENGTH_SHORT
+                    ).show()
 
-        var account = Account()
-        val user = mAuth.currentUser
-        if (user != null) {
-            val userInfo = db.collection("users").document(user.uid)
-            userInfo.get()
-                .addOnSuccessListener { document ->
-                    val dbaccount = document.toObject(Account::class.java)
-                    if (dbaccount != null) {
-                        account = dbaccount
-                    }
-                    if (account.type == UserType.CompanyOwner) {
-                        startActivity(Intent(applicationContext, ChooseCompanyActivity::class.java))
-                    } else if (account.type == UserType.Employee)
-                        startActivity(Intent(applicationContext, ProfileActivity::class.java))
                 }
-        }
+            }
 
 
     }

@@ -22,25 +22,32 @@ class ChooseCompanyActivity : AppCompatActivity() {
         val db = FirebaseFirestore.getInstance()
         var userCompanies: MutableList<Company> = arrayListOf()
         val companyIds: MutableList<String> = ArrayList()
+        val companys: MutableList<Company> = ArrayList()
 
-        db.collection("companies").whereEqualTo("ownerId",
+        db.collection("companies").whereEqualTo(
+            "ownerId",
             mAuth.currentUser?.uid
         ).get().addOnSuccessListener { documentSnapshot ->
             val dbcompanies = documentSnapshot.documents
 
-            for(item in dbcompanies )
-            {
+            var i = 0
+            for (item in dbcompanies) {
                 companyIds.add(item.id)
+                companys.add(item.toObject(Company::class.java)!!)
+                companys[i].documentId = companyIds[i]
+                i++
             }
             val arrayAdapter = CompanyArrayAdapter(this, companyIds.toTypedArray())
             listBoxCompanies.adapter = arrayAdapter
         }
 
-        listBoxCompanies.onItemClickListener =  AdapterView.OnItemClickListener {parent,view, position, id ->
-            val intent = Intent(this, MainCompanyOwnerActivity::class.java)
-            intent.putExtra("companyId",companyIds[position])
-            startActivity(intent)
-        }
+        listBoxCompanies.onItemClickListener =
+            AdapterView.OnItemClickListener { parent, view, position, id ->
+                val intent = Intent(this, MainCompanyOwnerActivity::class.java)
+                intent.putExtra("company", companys[position])
+                intent.putExtra("companyId", companyIds[position])
+                startActivity(intent)
+            }
 
         fabCreateCompany.setOnClickListener()
         {

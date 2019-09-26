@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/WorkfloorRow"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp">
+
+    <ImageView
+        android:id="@+id/workfloorColorRow"
+        android:layout_width="5dp"
+        android:layout_height="match_parent"
+        android:layout_margin="5dp"
+        android:layout_weight="1"
+        android:background="@color/colorAccent"
+        android:padding="20dp" />
+
+    <TextView
+        android:id="@+id/WorkfloorNameRow"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:layout_weight="1"
+        android:text="Workfloor name"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/btnEditWorkFloorRow"
+        android:layout_width="5dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:layout_weight="1"
+        android:background="@drawable/rounded_background"
+        android:backgroundTint="@android:color/holo_orange_dark"
+        android:foreground="@drawable/ic_edit_white_24dp"
+        android:foregroundGravity="center"
+        android:padding="10dp"
+        android:textAlignment="center"
+        android:textColor="@color/common_google_signin_btn_text_dark_default" />
+
+    <Button
+        android:id="@+id/btnDeleteWorkFloorRow"
+        android:layout_width="5dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:layout_weight="1"
+        android:background="@drawable/rounded_background"
+        android:backgroundTint="@android:color/holo_red_dark"
+        android:foreground="@drawable/ic_delete_white_24dp"
+        android:foregroundGravity="center"
+        android:padding="10dp"
+        android:textAlignment="center"
+        android:textColor="@color/common_google_signin_btn_text_dark_default" />
+</LinearLayout>

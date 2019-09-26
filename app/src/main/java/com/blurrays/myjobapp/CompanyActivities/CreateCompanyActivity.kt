@@ -67,7 +67,8 @@ class CreateCompanyActivity : AppCompatActivity() {
                 TxtBoxCompanyCity.text.toString(),
                 TxtBoxCompanyStreetname.text.toString(),
                 TxtBoxCompanyHouseNumber.text.toString().toInt(),
-                TxtBoxCompanySubPremise.text.toString()
+                TxtBoxCompanySubPremise.text.toString(),
+                ""
             )
             db.collection("companies").document().set(newCompany)
                 .addOnSuccessListener {

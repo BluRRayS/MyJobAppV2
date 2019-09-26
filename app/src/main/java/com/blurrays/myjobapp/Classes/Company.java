@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class Company implements Serializable {
 
-    public Company(String ownerId, String name, String email, String phone, String website, String city, String streetname, int housenumber, String subpremise) {
+    public Company(String ownerId, String name, String email, String phone, String website, String city, String streetname, int housenumber, String subpremise, String documentId) {
         this.ownerId = ownerId;
         this.name = name;
         this.email = email;
@@ -14,6 +14,7 @@ public class Company implements Serializable {
         this.streetname = streetname;
         this.housenumber = housenumber;
         this.subpremise = subpremise;
+        this.documentId = documentId;
     }
 
     public Company(){}

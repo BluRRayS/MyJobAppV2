@@ -7,9 +7,11 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.blurrays.myjobapp.Classes.Company
 
 class MainCompanyOwnerActivity : AppCompatActivity() {
 
+    var company = Company()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_company_owner)
@@ -20,10 +22,20 @@ class MainCompanyOwnerActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.navigation_schedule, R.id.navigation_employees, R.id.navigation_workfloors,R.id.navigation_roles
+                R.id.navigation_schedule,
+                R.id.navigation_employees,
+                R.id.navigation_workfloors,
+                R.id.navigation_roles
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+        company = intent.getSerializableExtra("company") as Company
+
+    }
+
+    internal fun getCompany(): Company {
+        return company
     }
 }

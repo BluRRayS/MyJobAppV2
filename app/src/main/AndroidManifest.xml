@@ -12,9 +12,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".WorkfloorActivities.EditWorkfloorActivity"></activity>
+        <activity android:name=".WorkfloorActivities.AddWorkfloorActivity" />
         <activity
             android:name=".MainCompanyOwnerActivity"
-            android:label="@string/title_activity_main_company_owner"></activity>
+            android:label="@string/title_activity_main_company_owner" />
         <activity android:name=".CompanyActivities.EditCompanyActivity" />
         <activity android:name=".CompanyActivities.CompanyInfoActivity" />
         <activity android:name=".CompanyActivities.ChooseCompanyActivity" />

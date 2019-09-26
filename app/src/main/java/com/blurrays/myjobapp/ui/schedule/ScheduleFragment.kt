@@ -22,10 +22,6 @@ class ScheduleFragment : Fragment() {
         scheduleViewModel =
             ViewModelProviders.of(this).get(ScheduleViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_schedule, container, false)
-        val textView: TextView = root.findViewById(R.id.text_home)
-        scheduleViewModel.text.observe(this, Observer {
-            textView.text = it
-        })
         return root
     }
 }
