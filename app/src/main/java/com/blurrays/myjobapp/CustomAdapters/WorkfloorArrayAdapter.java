@@ -23,6 +23,7 @@ import com.blurrays.myjobapp.Classes.Company;
 import com.blurrays.myjobapp.Classes.Workfloor;
 import com.blurrays.myjobapp.CompanyActivities.CompanyInfoActivity;
 import com.blurrays.myjobapp.R;
+import com.blurrays.myjobapp.WorkfloorActivities.EditWorkfloorActivity;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -38,11 +39,13 @@ public class WorkfloorArrayAdapter extends ArrayAdapter<String> {
     private final String[] values;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private final Workfloor[] workfloors = {new Workfloor()};
+    private final Company company;
 
-    public WorkfloorArrayAdapter(Context context, String[] workfloorIds) {
+    public WorkfloorArrayAdapter(Context context, String[] workfloorIds, Company company) {
         super(context, -1, workfloorIds);
         this.context = context;
         this.values = workfloorIds;
+        this.company = company;
     }
 
     @NonNull
@@ -67,19 +70,19 @@ public class WorkfloorArrayAdapter extends ArrayAdapter<String> {
                     editButton.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-//                            Intent intent = new Intent(getContext(), CompanyInfoActivity.class);
-//                            //if you want to send data to called activity uncomment next line
-//                            // intent.putExtra("extra", "value");
-//
-//                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//                            intent.putExtra("companyId",values[position]);
-//                            getContext().startActivity(intent);
-                            Toast.makeText(context, "Open edit menu", Toast.LENGTH_SHORT).show();
+                            //ToDo: fix bug with wrong workfloor data being send to activity
+                            Intent intent = new Intent(context, EditWorkfloorActivity.class);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            intent.putExtra("company", company );
+                            intent.putExtra("workfloor", workfloors[0]);
+                            intent.putExtra("workfloorId",values[position]);
+                            getContext().startActivity(intent);
                         }
                     });
                     deleteButton.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
+                            //ToDo: fix bug with wrong workfloor data being send to dialog
                             AlertDialog.Builder builder = new AlertDialog.Builder(context);
                             builder.setTitle("Delete " + workfloors[0].getName());
                             builder.setMessage("Are you sure?");

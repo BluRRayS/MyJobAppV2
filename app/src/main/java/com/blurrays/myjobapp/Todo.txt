@@ -10,6 +10,7 @@
 - Make unit tests
 - Make integration tests
 - Lessen Firestore usage by passing classes with the intent.
+- Return to specific fragment when returning to main activity
 
 #COMPANY OWNER SECTION
 

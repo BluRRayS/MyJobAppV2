@@ -77,7 +77,7 @@ class WorkfloorsFragment : Fragment() {
             workfloorIds.clear()
             for (doc in value!!) {
                 workfloorIds.add(doc.id)
-                val arrayAdapter = WorkfloorArrayAdapter(context, workfloorIds.toTypedArray())
+                val arrayAdapter = WorkfloorArrayAdapter(context, workfloorIds.toTypedArray(), (activity as MainCompanyOwnerActivity).getCompany())
                 ListViewWorkfloors.adapter = arrayAdapter
             }
             Log.d(TAG, "View updated")
