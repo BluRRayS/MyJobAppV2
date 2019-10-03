@@ -28,6 +28,7 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static androidx.constraintlayout.widget.Constraints.TAG;
@@ -38,7 +39,7 @@ public class WorkfloorArrayAdapter extends ArrayAdapter<String> {
     private final Context context;
     private final String[] values;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
-    private final Workfloor[] workfloors = {new Workfloor()};
+    private final ArrayList<Workfloor> workfloors = new ArrayList<Workfloor>();
     private final Company company;
 
     public WorkfloorArrayAdapter(Context context, String[] workfloorIds, Company company) {
@@ -51,6 +52,7 @@ public class WorkfloorArrayAdapter extends ArrayAdapter<String> {
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+        workfloors.clear();
         LayoutInflater inflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View rowView = inflater.inflate(R.layout.workfloor_row_layout, parent, false);
@@ -59,11 +61,11 @@ public class WorkfloorArrayAdapter extends ArrayAdapter<String> {
             if (task.isSuccessful()) {
                 DocumentSnapshot document = task.getResult();
                 if (document.exists()) {
-                    workfloors[0] = document.toObject(Workfloor.class);
+                    workfloors.add(document.toObject(Workfloor.class));
                     TextView workfloorName = rowView.findViewById(R.id.WorkfloorNameRow);
                     ImageView workfloorColorPreview = rowView.findViewById(R.id.workfloorColorRow);
-                    workfloorName.setText(workfloors[0].getName());
-                    workfloorColorPreview.setBackgroundColor(Color.argb(workfloors[0].getAlpha(), workfloors[0].getRed(), workfloors[0].getGreen(), workfloors[0].getBlue()));
+                    workfloorName.setText(workfloors.get(position).getName());
+                    workfloorColorPreview.setBackgroundColor(Color.argb(workfloors.get(position).getAlpha(), workfloors.get(position).getRed(), workfloors.get(position).getGreen(), workfloors.get(position).getBlue()));
 
                     Button editButton = rowView.findViewById(R.id.btnEditWorkFloorRow);
                     Button deleteButton = rowView.findViewById(R.id.btnDeleteWorkFloorRow);
@@ -74,7 +76,7 @@ public class WorkfloorArrayAdapter extends ArrayAdapter<String> {
                             Intent intent = new Intent(context, EditWorkfloorActivity.class);
                             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             intent.putExtra("company", company );
-                            intent.putExtra("workfloor", workfloors[0]);
+                            intent.putExtra("workfloor", workfloors.get(position));
                             intent.putExtra("workfloorId",values[position]);
                             getContext().startActivity(intent);
                         }
@@ -84,7 +86,7 @@ public class WorkfloorArrayAdapter extends ArrayAdapter<String> {
                         public void onClick(View view) {
                             //ToDo: fix bug with wrong workfloor data being send to dialog
                             AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                            builder.setTitle("Delete " + workfloors[0].getName());
+                            builder.setTitle("Delete " + workfloors.get(position).getName());
                             builder.setMessage("Are you sure?");
                             builder.setPositiveButton("Delete", new Dialog.OnClickListener() {
                                 @Override
@@ -115,5 +117,25 @@ public class WorkfloorArrayAdapter extends ArrayAdapter<String> {
             }
         });
         return rowView;
+    }
+
+    private ArrayList<Workfloor> getWorkfloorFromIds(String[] ids)
+    {
+        ArrayList<Workfloor> workfloors = new ArrayList<>();
+        for(String id: ids)
+        {
+            db.collection("workfloors").document(id).get().addOnCompleteListener( task -> {
+                if(task.isSuccessful())
+                {
+                    DocumentSnapshot document =  task.getResult();
+                    workfloors.add(document.toObject(Workfloor.class));
+                }
+            });
+        }
+        while (workfloors.size() < ids.length)
+        {
+
+        }
+        return workfloors;
     }
 }
